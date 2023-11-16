@@ -111,7 +111,8 @@ function App() {
 
     if (action === "drawing") {
       const index = elements.length - 1;
-      const { id, x1, y1 } = elements[index];
+      //const { id, x1, y1 } = elements[index];
+      const { id, x1, y1 } = currentElement;
       updateElement(id, x1, y1, clientX, clientY, tool);
     } else if (action === "moving") {
       const { id, x1, y1, x2, y2, type, offsetX, offsetY } = selectedElement;
@@ -123,10 +124,12 @@ function App() {
     }
   };
 
+  const adjustElementCoordinates = () => {};
+
   const handleMouseUp = (event) => {
-    if (action == "drawing") {
-      const { x1, y1, x2, y2 } = adjustElementCoordinates();
-    }
+    // if (action == "drawing") {
+    //   const { x1, y1, x2, y2 } = adjustElementCoordinates();
+    // }
 
     setAction("none");
     setSelectedElement(null);
